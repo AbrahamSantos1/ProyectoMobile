@@ -1,0 +1,91 @@
+{
+  "usuarios": [
+    {
+      "nombre": "Juan Pérez",
+      "correo": "juan.perez@example.com",
+      "contrasena": "ContrasenaSegura123",
+      "cita_medica": {
+        "especialidad_doctor": "Cardiología",
+        "dia": "Lunes",
+        "hora": "10:00 AM",
+        "doctor": {
+          "nombre_completo": "Dr. Carlos García",
+          "universidad": "Universidad Nacional Mayor de San Marcos",
+          "resenas": [
+            {
+              "cliente": "Pedro Gómez",
+              "comentario": "Muy profesional, me sentí muy seguro con su diagnóstico."
+            },
+            {
+              "cliente": "Ana Torres",
+              "comentario": "Excelente atención, lo recomiendo."
+            }
+          ],
+          "ubicacion_clinica": {
+            "latitud": -12.0464,
+            "longitud": -77.0428,
+            "direccion": "Av. Pardo y Aliaga 640, San Isidro, Lima, Perú"
+          }
+        }
+      }
+    },
+    {
+      "nombre": "María López",
+      "correo": "maria.lopez@example.com",
+      "contrasena": "ClaveSegura456",
+      "cita_medica": {
+        "especialidad_doctor": "Dermatología",
+        "dia": "Lunes",
+        "hora": "14:30",
+        "doctor": {
+          "nombre_completo": "Dra. Sofía Sánchez",
+          "universidad": "Universidad Peruana Cayetano Heredia",
+          "resenas": [
+            {
+              "cliente": "Carmen Díaz",
+              "comentario": "La Dra. Sánchez es muy atenta y resolvió mi problema de piel."
+            },
+            {
+              "cliente": "Luis Castillo",
+              "comentario": "Recibí un excelente tratamiento, muy recomendable."
+            }
+          ],
+          "ubicacion_clinica": {
+            "latitud": -12.1218,
+            "longitud": -77.0302,
+            "direccion": "Calle Los Laureles 230, Miraflores, Lima, Perú"
+          }
+        }
+      }
+    },
+    {
+      "nombre": "Carlos Fernández",
+      "correo": "carlos.fernandez@example.com",
+      "contrasena": "PassSegura789",
+      "cita_medica": {
+        "especialidad_doctor": "Oftalmología",
+        "dia": "2024-09-28",
+        "hora": "09:00",
+        "doctor": {
+          "nombre_completo": "Dr. Enrique Rojas",
+          "universidad": "Pontificia Universidad Católica del Perú",
+          "resenas": [
+            {
+              "cliente": "Lucía Herrera",
+              "comentario": "Excelente oftalmólogo, muy cuidadoso en los exámenes."
+            },
+            {
+              "cliente": "Fernando Quiroz",
+              "comentario": "Me ayudó mucho con mi visión, muy profesional."
+            }
+          ],
+          "ubicacion_clinica": {
+            "latitud": -12.0983,
+            "longitud": -77.0240,
+            "direccion": "Jr. Las Camelias 150, Surco, Lima, Perú"
+          }
+        }
+      }
+    }
+  ]
+}

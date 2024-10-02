@@ -1,0 +1,62 @@
+[
+    {
+        "nombre": "Dr. Rodriguez",
+        "especialidad": "Cardiología",
+        "edad": 45,
+        "telefono": "+51 987 654 321",
+        "email": "rodriguez@hospital.com",
+        "experiencia": 20,
+        "hospital": "Hospital General",
+        "direccion": {
+            "calle": "Av. Siempre Viva",
+            "numero": 123,
+            "ciudad": "Lima",
+            "pais": "Perú"
+        }
+    },
+    {
+        "nombre": "Dr. Perez",
+        "especialidad": "Pediatría",
+        "edad": 38,
+        "telefono": "+51 965 432 198",
+        "email": "perez@hospital.com",
+        "experiencia": 15,
+        "hospital": "Clínica Infantil",
+        "direccion": {
+            "calle": "Calle Futura",
+            "numero": 456,
+            "ciudad": "Arequipa",
+            "pais": "Perú"
+        }
+    },
+    {
+        "nombre": "Dr. Martinez",
+        "especialidad": "Neurología",
+        "edad": 50,
+        "telefono": "+51 912 345 678",
+        "email": "martinez@hospital.com",
+        "experiencia": 25,
+        "hospital": "Centro Neurológico",
+        "direccion": {
+            "calle": "Av. Del Cerebro",
+            "numero": 789,
+            "ciudad": "Cusco",
+            "pais": "Perú"
+        }
+    },
+    {
+        "nombre": "Dr. Lopez",
+        "especialidad": "Ginecología",
+        "edad": 42,
+        "telefono": "+51 987 123 456",
+        "email": "lopez@hospital.com",
+        "experiencia": 18,
+        "hospital": "Clínica de la Mujer",
+        "direccion": {
+            "calle": "Calle de la Vida",
+            "numero": 101,
+            "ciudad": "Trujillo",
+            "pais": "Perú"
+        }
+    }
+]
