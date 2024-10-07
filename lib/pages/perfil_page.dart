@@ -10,7 +10,8 @@ class PerfilPage extends StatelessWidget {
   }
 
   logout(BuildContext context) {
-    Navigator.pop(context);
+    Navigator.pushNamedAndRemoveUntil(
+      context, '/login', (Route<dynamic> route) => false);
   }
 
   @override
