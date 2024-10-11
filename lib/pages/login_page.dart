@@ -77,8 +77,8 @@ class LoginPage extends StatelessWidget {
     Navigator.pushNamed(context, '/create_account');
   }
 
-  void forgotPassword() {
-    // Logic for password recovery (optional)
+  void forgotPassword(BuildContext context) {
+    Navigator.pushNamed(context, '/forgot_pass');
   }
 
   @override
@@ -136,7 +136,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 150),
                 MyButton(
-                  onTap: forgotPassword,
+                  onTap: () => forgotPassword(context),
                   colorBG: Colors.white,
                   colorTxt: Colors.black,
                   text: '¿Olvidaste tu contrasena?',
