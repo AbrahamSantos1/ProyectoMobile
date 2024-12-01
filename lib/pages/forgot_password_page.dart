@@ -16,7 +16,7 @@ class ForgotPassword extends StatelessWidget {
 
   Usuario? buscarUsuarioEnJson(String email, List<Usuario> usuarios) {
     for (Usuario usuario in usuarios) {
-      if (usuario.correo == email) {
+      if (usuario.email == email) {
         return usuario;
       }
     }

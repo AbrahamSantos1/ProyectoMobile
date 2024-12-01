@@ -1,17 +1,22 @@
-import 'package:control_salud_infantil/pages/book_appointment.dart';
-import 'package:control_salud_infantil/pages/create_account_page.dart';
+import 'package:control_salud_infantil/pages/book_appointment_page.dart';
+import 'package:control_salud_infantil/pages/crear_cuenta/create_account_page.dart';
 import 'package:control_salud_infantil/pages/edit_perfil_page.dart';
-import 'package:control_salud_infantil/pages/enter_code.dart';
-import 'package:control_salud_infantil/pages/forgot_password.dart';
-import 'package:control_salud_infantil/pages/home_page.dart';
-import 'package:control_salud_infantil/pages/login_page.dart';
-import 'package:control_salud_infantil/pages/my_data.dart';
+import 'package:control_salud_infantil/pages/enter_code_page.dart';
+import 'package:control_salud_infantil/pages/forgot_password_page.dart';
+import 'package:control_salud_infantil/pages/home/home_page.dart';
+import 'package:control_salud_infantil/pages/login/login_page.dart';
+import 'package:control_salud_infantil/pages/my_data_page.dart';
 import 'package:control_salud_infantil/pages/perfil_page.dart';
-import 'package:control_salud_infantil/pages/professional_perfil.dart';
-import 'package:control_salud_infantil/pages/restore_password.dart';
+import 'package:control_salud_infantil/pages/professional_perfil_page.dart';
+import 'package:control_salud_infantil/pages/restore_password_page.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initializeDateFormatting('es', null);
+  Intl.defaultLocale = 'es'; 
   runApp(const MyApp());
 }
 

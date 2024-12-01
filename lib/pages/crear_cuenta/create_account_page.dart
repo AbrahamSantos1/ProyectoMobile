@@ -1,16 +1,19 @@
+import 'package:control_salud_infantil/pages/crear_cuenta/crear_cuenta_controller.dart';
+import 'package:control_salud_infantil/service/crear_cuenta_service.dart';
+import 'package:flutter/material.dart';
 import 'package:control_salud_infantil/components/my_button.dart';
 import 'package:control_salud_infantil/components/my_textfield.dart';
-import 'package:flutter/material.dart';
 
 class CreateAccountPage extends StatelessWidget {
   CreateAccountPage({super.key});
-// Controladores de texto
+
   final usernameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final repeatPasswordController = TextEditingController();
 
-  void createAccount() {}
+  final CreateAccountController controller =
+      CreateAccountController(accountService: AccountService());
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,7 @@ class CreateAccountPage extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.white,
-        elevation: 0, // Eliminar la sombra predeterminada
+        elevation: 0,
       ),
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -32,10 +35,8 @@ class CreateAccountPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 50),
-                // Logo
                 Row(
                   children: [
-                    // Icono de lápiz dentro de un contenedor con decoración
                     Container(
                       padding: const EdgeInsets.all(8),
                       child: const Padding(
@@ -54,7 +55,7 @@ class CreateAccountPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Colors.black, // Color del texto
+                            color: Colors.black,
                           ),
                         ),
                         SizedBox(height: 4),
@@ -62,7 +63,7 @@ class CreateAccountPage extends StatelessWidget {
                           'Ingresa tus datos para \n crear tu cuenta',
                           style: TextStyle(
                             fontSize: 14,
-                            color: Colors.grey, // Color del subtítulo
+                            color: Colors.grey,
                           ),
                         ),
                       ],
@@ -82,8 +83,6 @@ class CreateAccountPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 8),
-
-                // Usuario
                 MyTextfield(
                   controller: usernameController,
                   hintText: 'Ingresa tu nombre',
@@ -91,7 +90,6 @@ class CreateAccountPage extends StatelessWidget {
                   validator: (value) => '',
                 ),
                 const SizedBox(height: 10),
-
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.0),
                   child: Text(
@@ -104,7 +102,6 @@ class CreateAccountPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 8),
-
                 MyTextfield(
                   controller: emailController,
                   hintText: 'Ingresa tu correo electrónico',
@@ -112,7 +109,6 @@ class CreateAccountPage extends StatelessWidget {
                   validator: (value) => '',
                 ),
                 const SizedBox(height: 10),
-
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.0),
                   child: Text(
@@ -131,7 +127,7 @@ class CreateAccountPage extends StatelessWidget {
                   obscureText: true,
                   validator: (value) => '',
                 ),
-
+                const SizedBox(height: 10),
                 MyTextfield(
                   controller: repeatPasswordController,
                   hintText: 'Ingresa nuevamente tu contraseña',
@@ -139,10 +135,16 @@ class CreateAccountPage extends StatelessWidget {
                   validator: (value) => '',
                 ),
                 const SizedBox(height: 30),
-
-                // Botón para crear cuenta
                 MyButton(
-                  onTap: createAccount,
+                  onTap: () {
+                    controller.createAccount(
+                      nombre: usernameController.text,
+                      email: emailController.text,
+                      password: passwordController.text,
+                      passwordConfirmation: repeatPasswordController.text,
+                      context: context,
+                    );
+                  },
                   text: 'Crear cuenta',
                   colorBG: Colors.black,
                   colorTxt: Colors.white,

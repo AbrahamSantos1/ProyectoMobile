@@ -46,7 +46,7 @@ class EditPerfilPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          usuario.nombre,
+                          usuario.nombre ?? '',
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -78,7 +78,7 @@ class EditPerfilPage extends StatelessWidget {
                 // Usuario
                 MyTextfield(
                   controller: usernameController,
-                  hintText: usuario.nombre,
+                  hintText: usuario.nombre ?? '',
                   obscureText: false,
                   validator: (value) => '',
                 ),
@@ -99,7 +99,7 @@ class EditPerfilPage extends StatelessWidget {
 
                 MyTextfield(
                   controller: emailController,
-                  hintText: usuario.correo,
+                  hintText: usuario.email ?? '',
                   obscureText: false,
                   validator: (value) => '',
                 ),
@@ -119,14 +119,14 @@ class EditPerfilPage extends StatelessWidget {
                 const SizedBox(height: 8),
                 MyTextfield(
                   controller: passwordController,
-                  hintText: usuario.contrasena,
+                  hintText: usuario.contrasena ?? '',
                   obscureText: true,
                   validator: (value) => '',
                 ),
 
                 MyTextfield(
                   controller: repeatPasswordController,
-                  hintText: usuario.contrasena,
+                  hintText: usuario.contrasena ?? '',
                   obscureText: true,
                   validator: (value) => '',
                 ),

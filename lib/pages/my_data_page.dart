@@ -45,7 +45,7 @@ class MyData extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      usuario.nombre,
+                      usuario.nombre ?? 'Nombre no disponible',
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -69,7 +69,7 @@ class MyData extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      usuario.correo,
+                      usuario.email ?? 'Correo no disponible',
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,

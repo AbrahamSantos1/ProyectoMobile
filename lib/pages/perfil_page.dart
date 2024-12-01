@@ -50,7 +50,7 @@ class PerfilPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      usuario.nombre,
+                      usuario.nombre ?? 'Nombre no disponible',
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,

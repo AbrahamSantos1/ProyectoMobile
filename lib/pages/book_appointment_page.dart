@@ -135,6 +135,7 @@ class _BookAppointmentState extends State<BookAppointment> {
                     onPressed: () => seeAllTheAppointments(context)),
               ],
             ),
+            /*
             AppointmentTile(
               title: 'Cita de Vacunacion',
               subtitle: 'Fecha: 15 de junio 2021',
@@ -156,6 +157,7 @@ class _BookAppointmentState extends State<BookAppointment> {
               onOptionalTextTap: () => professionalPerfil(
                   context, doctors[1]), // Pass the appropriate doctor
             ),
+            */
           ],
         ),
       ),

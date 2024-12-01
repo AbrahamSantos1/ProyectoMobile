@@ -112,16 +112,7 @@ class ProfessionalPerfil extends StatelessWidget {
                   ),
                 ),
               ),
-              const AppointmentTile(
-                title: 'Medical School',
-                subtitle: 'University of Health Sciences',
-                icon: Icons.heat_pump,
-              ),
-              const AppointmentTile(
-                title: 'Board Certification',
-                subtitle: 'American Board of Cardiology',
-                icon: Icons.heat_pump,
-              ),
+              
               const Padding(
                 padding: EdgeInsets.all(16.0),
                 child: Text(
