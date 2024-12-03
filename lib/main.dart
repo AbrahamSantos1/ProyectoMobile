@@ -39,7 +39,11 @@ class MyApp extends StatelessWidget {
         '/my_data': (context) => const MyData(),
         '/perfil': (context) => const PerfilPage(),
         '/edit_perfil': (context) => EditPerfilPage(),
-        '/reservar': (context) => const ReservarPage(),
+        '/reservar': (context) => ReservarPage(
+              usuarioId: 1, 
+              perfilPacienteId: 1, 
+              registroMedicoId: 1, 
+            ),
         '/professional': (context) => const ProfessionalPerfil()
       },
     );

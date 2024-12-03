@@ -2,58 +2,28 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:control_salud_infantil/config/config.dart';
 import 'package:control_salud_infantil/models/datos.dart';
-
 class ReservarService {
-  final String baseUrl = Config.baseUrl;
+  static const String baseUrl = "http://10.0.2.2:9292";
 
-  Future<List<String>> fetchDoctors() async {
-    final url = Uri.parse('$baseUrl/doctores');
-    final response = await http.get(url);
+  Future<Map<String, dynamic>?> fetchDatosMedicos(int usuarioId, int perfilPacienteId, int registroMedicoId) async {
+    final url = Uri.parse('$baseUrl/datos_medicos/$usuarioId/$perfilPacienteId/$registroMedicoId');
+    final response = await http.post(url);
 
     if (response.statusCode == 200) {
-      final List<dynamic> data = jsonDecode(response.body);
-      return data.map((doctor) => doctor['nombre'] as String).toList();
+      return json.decode(response.body);
     } else {
-      throw Exception('Error al obtener doctores: ${response.body}');
+      return null; // Manejo de error según respuesta de API
     }
   }
 
-  Future<List<Appointment>> fetchAppointments() async {
-    final url = Uri.parse('$baseUrl/citas');
+  Future<List<dynamic>> fetchCalendarioVacunas(int perfilPacienteId) async {
+    final url = Uri.parse('$baseUrl/calendario_vacunas/$perfilPacienteId');
     final response = await http.get(url);
 
     if (response.statusCode == 200) {
-      final List<dynamic> data = jsonDecode(response.body);
-      return data
-          .map((cita) => Appointment(
-                titulo: cita['titulo'],
-                fecha: cita['fecha'],
-                doctor: cita['doctor'],
-              ))
-          .toList();
+      return json.decode(response.body);
     } else {
-      throw Exception('Error al obtener citas: ${response.body}');
-    }
-  }
-
-  Future<void> bookAppointment({
-    required String doctor,
-    required DateTime date,
-    required String time,
-  }) async {
-    final url = Uri.parse('$baseUrl/reservar');
-    final response = await http.post(
-      url,
-      headers: {'Content-Type': 'application/json'},
-      body: jsonEncode({
-        'doctor': doctor,
-        'fecha': '${date.year}-${date.month}-${date.day}',
-        'hora': time,
-      }),
-    );
-
-    if (response.statusCode != 200 && response.statusCode != 201) {
-      throw Exception('Error al reservar cita: ${response.body}');
+      throw Exception('Error al obtener el calendario de vacunas');
     }
   }
 }

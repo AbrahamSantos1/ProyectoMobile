@@ -2,77 +2,40 @@ import 'package:flutter/material.dart';
 import 'package:control_salud_infantil/models/datos.dart';
 import 'package:control_salud_infantil/service/reservar_service.dart';
 
-class ReservarController {
-  final ReservarService reservarService = ReservarService();
+class ReservarController with ChangeNotifier {
+  final ReservarService _service = ReservarService();
+
   bool isLoading = false;
+  Map<String, dynamic>? datosMedicos;
+  List<dynamic> calendarioVacunas = [];
+  String? errorMessage;
 
-  String? selectedDoctor;
-  DateTime selectedDate = DateTime.now();
-  String? selectedTime;
-
-  List<String> doctors = [];
-  List<String> timeSlots = [
-    '8:00 AM',
-    '9:00 AM',
-    '10:00 AM',
-    '11:00 AM',
-    '1:00 PM',
-    '2:00 PM',
-    '3:00 PM'
-  ];
-  List<Appointment> upcomingAppointments = [];
-
-  Future<void> fetchDoctors() async {
+  Future<void> obtenerDatosMedicos(int usuarioId, int perfilPacienteId, int registroMedicoId) async {
     isLoading = true;
+    notifyListeners();
     try {
-      doctors = await reservarService.fetchDoctors();
-    } catch (e) {
-      doctors = [];
-    } finally {
-      isLoading = false;
-    }
-  }
-
-  Future<void> fetchAppointments() async {
-    isLoading = true;
-    try {
-      upcomingAppointments = await reservarService.fetchAppointments();
-    } catch (e) {
-      upcomingAppointments = [];
-    } finally {
-      isLoading = false;
-    }
-  }
-
-  void selectDoctor(String doctor) {
-    selectedDoctor = doctor;
-  }
-
-  void selectDate(DateTime date) {
-    selectedDate = date;
-  }
-
-  void selectTime(String time) {
-    selectedTime = time;
-  }
-
-  Future<void> bookAppointment(BuildContext context) async {
-    if (selectedDoctor != null && selectedTime != null) {
-      try {
-        await reservarService.bookAppointment(
-          doctor: selectedDoctor!,
-          date: selectedDate,
-          time: selectedTime!,
-        );
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Cita reservada exitosamente')),
-        );
-        await fetchAppointments();
-      } catch (e) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error: $e')),
-        );
+      datosMedicos = await _service.fetchDatosMedicos(usuarioId, perfilPacienteId, registroMedicoId);
+      if (datosMedicos == null) {
+        errorMessage = 'No se encontraron datos médicos.';
       }
+    } catch (e) {
+      errorMessage = 'Error al obtener los datos médicos.';
+    } finally {
+      isLoading = false;
+      notifyListeners();
+    }
+  }
+
+  Future<void> obtenerCalendarioVacunas(int perfilPacienteId) async {
+    isLoading = true;
+    notifyListeners();
+    try {
+      calendarioVacunas = await _service.fetchCalendarioVacunas(perfilPacienteId);
+    } catch (e) {
+      errorMessage = 'Error al obtener el calendario de vacunas.';
+    } finally {
+      isLoading = false;
+      notifyListeners();
     }
   }
 }
