@@ -9,6 +9,7 @@ import 'package:control_salud_infantil/pages/my_data_page.dart';
 import 'package:control_salud_infantil/pages/perfil_page.dart';
 import 'package:control_salud_infantil/pages/professional_perfil_page.dart';
 import 'package:control_salud_infantil/pages/restore_password_page.dart';
+import 'package:control_salud_infantil/pages/reservar/reservar_page.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
         '/my_data': (context) => const MyData(),
         '/perfil': (context) => const PerfilPage(),
         '/edit_perfil': (context) => EditPerfilPage(),
-        '/reservar': (context) => const BookAppointment(),
+        '/reservar': (context) => const ReservarPage(),
         '/professional': (context) => const ProfessionalPerfil()
       },
     );
