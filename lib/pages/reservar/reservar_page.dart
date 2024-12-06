@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:control_salud_infantil/controllers/reservar_controller.dart';
-import 'package:control_salud_infantil/widgets/my_calendar.dart';  // Importa tu widget personalizado
+import 'package:control_salud_infantil//pages/reservar/reservar_controller.dart';
+import 'package:control_salud_infantil/components/my_calendar.dart';  // Importa tu widget personalizado
 
 class ReservarPage extends StatefulWidget {
   const ReservarPage({Key? key}) : super(key: key);
